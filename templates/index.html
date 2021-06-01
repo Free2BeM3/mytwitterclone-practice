@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: rgb(47, 217, 255);">
+   <center>
+    <div style="background-color: black; width: 90vw; height: 70px; border: 2px solid lightgray;
+    display: 
+   flex; 
+   flex-direction: row; color: white; padding: 5px; align-items: center; justify-content: space-evenly;">
+   <h1 style="text-shadow: 3px 2px  rgb(234, 238, 238); color: rgb(9, 138, 167);">Twitter-Clone</h1>
+   <button style="height: 40px;"><a style="font-weight: bold;text-decoration: none; font-size: large; color: black;" href="#">Tweet</a></button>
+   <button style="height: 40px;"><a style="font-weight: bold;text-decoration: none; font-size: large; color: black;" href="#">Notifications</a></button>
+   <button style="height: 40px;"><a style="font-weight: bold;text-decoration: none; font-size: large; color: black;" href="#">Profile</a></button>
+   <button style="height: 40px;"><a style="font-weight: bold;text-decoration: none; font-size: large; color: black;" href="/logout/">Logout</a></button>
+   {%if user.is_staff%}
+   <button style="height: 40px;"><a style="font-weight: bold;text-decoration: none; font-size: large; color: black;" href="/admin/">Admin</a></button>
+
+   {%endif%}
+  </div>
+<h1>welcome {{user.username}}</h1>
+<div>
+<h1>Users:</h1>
+<ul>
+    {%for user in users%} 
+<li>{{user.username}}</li>
+
+
+{%endfor%}
+</ul>
+<div>
+    {%for post in posts%} 
+    <div style="width: 350px; border: 2px solid rgb(3, 155, 189); border-radius: 44px;
+    box-shadow: 7px 5px  white;">
+        <div style="border-bottom: 1px dashed rgb(3, 155, 189);">
+            <h1 style="color: white;">{{post.title}}</h1>
+        <p>Posted By: @{{post.created_by}}</p>
+        <p>on: {{post.posted_at}}</p>
+        </div>
+        
+        <div>
+            <h3 style="color: white;">{{user.username}} Say's:</h3>
+            <p>{{post.body}}</p>
+        </div>
+    </div>
+
+    {%endfor%}
+</div>
+
+
+</div>
+
+   </center>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
