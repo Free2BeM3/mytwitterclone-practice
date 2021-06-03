@@ -6,3 +6,6 @@ class Tweet(models.Model):
     body = models.TextField(max_length=140)
     created_by = models.ForeignKey(CustomUser, related_name='user', on_delete=models.CASCADE)
     posted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title

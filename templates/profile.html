@@ -43,6 +43,11 @@
           >{{user.email}}</a
         >
       </div>
+      <div style="border: 1px solid rgb(7, 207, 221)">
+        <h1>Bio:</h1>
+        <p>Name: {{user.first_name}} {{user.last_name}}</p>
+        <p>Birthday: {{user.birthday}}</p>
+      </div>
 
       <!-- Nav Links -->
 
@@ -100,18 +105,11 @@
             margin-bottom: 5px;
           "
         >
-          <center>
-            <a
-              style="text-decoration: none; color: white; font-weight: bolder"
-              href="/profile/{{user.id}}/"
-            >
-              <img
-                style="width: 25px; border: 1px solid white; border-radius: 50%"
-                src="/media/{{user.avatar}}/"
-              />
-              Profile
-            </a>
-          </center>
+          <a
+            style="text-decoration: none; color: white; font-weight: bolder"
+            href="/profile/{{request.user.id}}/"
+            >Profile</a
+          >
         </button>
 
         <!-- Logout -->
@@ -153,7 +151,7 @@
     <!-- Tweet feed -->
     <div
       style="
-        width: 40vw;
+        width: 60vw;
 
         margin-right: 5px;
         border-right: 1px solid rgb(7, 207, 221);
@@ -164,7 +162,7 @@
       <div
         style="text-align: center; border-bottom: 1px solid rgb(7, 207, 221)"
       >
-        <h1>Tweet Feed</h1>
+        <h1>{{user.username}}'s Feed</h1>
       </div>
 
       <!-- Feed displays all "Tweets from currently logged in user and users they follow" -->
@@ -182,7 +180,6 @@
       >
         <div style="border-bottom: 1px dashed rgb(3, 155, 189)">
           <h1 style="color: white">{{post.title}}</h1>
-
           <p
             style="display: flex; justify-content: center; align-items: center"
           >
@@ -211,112 +208,51 @@
       {%endfor%}
     </div>
 
-    <!-- lastest tweeters -->
+    <!-- followers section -->
     <div
       style="
         border-left: 1px solid rgb(7, 207, 221);
-        border-right: 1px solid rgb(7, 207, 221);
         border-top-left-radius: 14px;
-        width: 55vw;
+        width: 25vw;
         text-align: center;
       "
     >
       <div style="border-bottom: 1px solid rgb(7, 207, 221)">
-        <h1>Latest Tweeters</h1>
+        <h1>My Followers</h1>
       </div>
       <div
         style="
           display: flex;
+          height: 350px;
           flex-direction: row;
           flex-wrap: wrap;
           justify-content: center;
           justify-content: space-evenly;
           align-items: center;
+          border-bottom: 1px solid rgb(7, 207, 221);
         "
       >
-        {%for user in users%}
-        <div
-          style="
-            width: 150px;
-            height: 200px;
-            border: 1px solid rgb(7, 207, 221);
-            padding: 15px;
-            margin: 3px;
-            border-radius: 11px;
-          "
-        >
-          <div>
-            {%if user.avatar%}
-            <img
-              style="width: 60px; border-radius: 50%"
-              src="/media/{{user.avatar}}/"
-              alt="pic"
-            />
-            {%elif not user.avatar%}
-            <img
-              style="width: 60px; border-radius: 50%"
-              src="{{user.avatar}}/"
-              alt="pic"
-            />
-            {%endif%}
-            <h4>
-              <a style="color: rgb(0, 229, 255)" href="/profile/{{user.id}}/">
-                {{user.username}}
-              </a>
-            </h4>
-            <!-- Check if user online -->
-            {%if user.is_online%}
-            <div
-              style="
-                width: 100%;
-                height: 10px;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-              "
-            >
-              <div
-                style="
-                  width: 15px;
-                  height: 15px;
-                  border: 1px solid white;
-                  border-radius: 50%;
-                  background-color: chartreuse;
-                "
-              ></div>
-              <p>Online</p>
-            </div>
-            {%else%}
-            <div
-              style="
-                width: 100%;
-                height: 10px;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-              "
-            >
-              <div
-                style="
-                  width: 15px;
-                  height: 15px;
-                  border: 1px solid white;
-                  border-radius: 50%;
-                  background-color: rgb(255, 38, 0);
-                "
-              ></div>
-              <p>Offline</p>
-            </div>
-            {%endif%}
-          </div>
-          <div>
-            <p>Member Since: {{user.date_joined}}</p>
-          </div>
-        </div>
+        None
+      </div>
 
-        {%endfor%}
+      <!-- Following -->
+
+      <div style="border-bottom: 1px solid rgb(7, 207, 221)">
+        <h1>Who I follow</h1>
+      </div>
+      <div
+        style="
+          display: flex;
+          height: 350px;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          justify-content: space-evenly;
+          align-items: center;
+          border-bottom: 1px solid rgb(7, 207, 221);
+        "
+      >
+        None
       </div>
     </div>
   </body>

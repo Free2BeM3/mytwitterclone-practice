@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body style="background-color: black;">
+  </head>
+  <body style="background-color: black">
     <center>
-        
-        <div style="background-color: black; width: 90vw; height: 70px; border: 2px solid lightgray;
-          display: 
-         flex; 
-         flex-direction: row; color: white; padding: 5px; align-items: center; justify-content: space-evenly;">
-         <h1 style="text-shadow: 3px 2px  rgb(9, 217, 232);">Twitter-Clone</h1>
-         <button style="height: 40px;"><a style="font-weight: bold;text-decoration: none; font-size: large; color: black;" href="/">Home</a></button>
-         <button style="height: 40px;"><a style="font-weight: bold;text-decoration: none; font-size: large; color: black;" href="#">Tweet</a></button>
-         <button style="height: 40px;"><a style="font-weight: bold;text-decoration: none; font-size: large; color: black;" href="#">Notifications</a></button>
-         <button style="height: 40px;"><a style="font-weight: bold;text-decoration: none; font-size: large; color: black;" href="#">Profile</a></button>
-         <!-- <button style="height: 40px;"><a style="font-weight: bold;text-decoration: none; font-size: large; color: black;" href="/logout/">Logout</a></button> -->
-        </div>
-        <form method='post' action="" style="border: 3px solid rgb(138, 136, 136); 
-        width: 200px; background-color: rgb(18, 147, 194); margin-top: 10px;">
-            <h1>Sign In</h1>
-            {% csrf_token %}  
-            {{ form.as_p }}
-           <input type="submit" value="Submit">
-           <p>Don't have an account? <a href="/signup/">Register Here</a></p>
-           </form>
+      <form
+        method="post"
+        action=""
+        enctype="multipart/form-data"
+        style="
+          border: 3px solid rgb(138, 136, 136);
+          width: 400px;
+          background-color: rgb(22, 24, 24);
+          margin-top: 10px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          color: white;
+        "
+      >
+        {% csrf_token %} {{ form.as_p }}
+        <input type="submit" value="Submit" />
+        <p>Don't have an account? <a href="/signup/">Register Here</a></p>
+      </form>
     </center>
-</body>
+  </body>
 </html>
