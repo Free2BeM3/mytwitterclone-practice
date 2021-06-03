@@ -25,9 +25,9 @@
           color: white;
         "
       >
+        <h1>Tweet it up little bird.</h1>
         {% csrf_token %} {{ form.as_p }}
         <input type="submit" value="Submit" />
-        <p>Don't have an account? <a href="/signup/">Register Here</a></p>
       </form>
     </center>
   </body>

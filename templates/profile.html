@@ -52,6 +52,7 @@
       <!-- Nav Links -->
 
       <div style="padding: 5px; display: flex; flex-direction: column">
+        {%if request.user.is_authenticated%}
         <!-- Home -->
         <button
           style="
@@ -66,7 +67,6 @@
             >Home</a
           >
         </button>
-
         <!-- new tweet -->
         <button
           style="
@@ -141,6 +141,34 @@
             style="text-decoration: none; color: white; font-weight: bolder"
             href="/admin/"
             >Admin</a
+          >
+        </button>
+
+        {%endif%} {%else%}
+        <button
+          style="
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.213);
+            margin-bottom: 5px;
+          "
+        >
+          <a
+            style="text-decoration: none; color: white; font-weight: bolder"
+            href="/login/"
+            >Login</a
+          >
+        </button>
+        <button
+          style="
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.213);
+            margin-bottom: 5px;
+          "
+        >
+          <a
+            style="text-decoration: none; color: white; font-weight: bolder"
+            href="/signup/"
+            >Signup</a
           >
         </button>
 

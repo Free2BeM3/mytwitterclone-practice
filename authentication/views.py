@@ -36,7 +36,7 @@ def signup_view(request):
             return HttpResponseRedirect(reverse('login'))
 
     form = UserForm()
-    return render(request, 'generic_form.html', {'form': form})
+    return render(request, 'signupform.html', {'form': form})
 
 
 def login_view(request):
@@ -55,7 +55,7 @@ def login_view(request):
 
 
     form = LoginForm()
-    return render(request, 'generic_form.html', {'form': form})
+    return render(request, 'login_form.html', {'form': form})
 
 
 
